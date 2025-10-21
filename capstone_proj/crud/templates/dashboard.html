@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management Dashboard</title>
+</head>
+<body>
+    <h2>Student Management Dashboard</h2>
+
+    <!-- Get All Students -->
+    <form action="/students_html" method="get" target="result_frame">
+        <button type="submit">Get All Students</button>
+    </form>
+    <br>
+
+    <!-- Add Student -->
+    <form action="/students" method="post" target="result_frame">
+    <input type="number" name="StudentID" placeholder="StudentID" required>   
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="number" name="age" placeholder="Age" required>
+    <input type="text" name="course" placeholder="Course" required>
+    <button type="submit">Add Student</button>
+    </form>
+
+
+    <!-- Update Student -->
+    <form action="/students_update" method="post" target="result_frame">
+        <input type="number" name="student_id" placeholder="ID" required>
+        <input type="text" name="name" placeholder="New Name">
+        <input type="number" name="age" placeholder="New Age">
+        <input type="text" name="course" placeholder="New Course">
+        <button type="submit">Update Student</button>
+    </form>
+    <br>
+
+    <!-- Delete Student -->
+    <form action="/students_delete" method="post" target="result_frame">
+        <input type="number" name="student_id" placeholder="ID" required>
+        <button type="submit">Delete Student</button>
+    </form>
+    <br>
+
+    <!-- Get AI Students -->
+    <form action="/students_ai_html" method="get" target="result_frame">
+        <button type="submit">Get AI Students</button>
+    </form>
+    <br>
+
+    <!-- ETL Results -->
+    <form action="/etl_results" method="get" target="result_frame">
+        <button type="submit">Run ETL & Show Results(Manual)</button>
+    </form>
+    <br>
+    <!-- ETL via RabbitMQ Queue -->
+    <form action="/etl_queue_rabbit" method="get" target="result_frame">
+        <button type="submit">Run ETL via RabbitMQ Queue</button>
+    </form>
+    <br>
+
+    <!-- Upload CSV for ETL -->
+    <form action="/upload_marks_csv" method="post" enctype="multipart/form-data" target="result_frame">
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Upload CSV for ETL</button>
+    </form>
+    <br>
+
+    <!-- View ETL Results from DB -->
+    <form action="/students_etl_html" method="get" target="result_frame">
+        <button type="submit">View ETL Results (DB)</button>
+    </form>
+    <br>
+    
+    <!-- Final Analytics -->
+    <form action="/final_analytics" method="get" target="result_frame">
+        <button type="submit">Show Final Analytics</button>
+    </form>
+    <br>
+
+
+    <!-- Result Display -->
+    <iframe name="result_frame" width="100%" height="300px" style="border:1px solid black;"></iframe>
+
+</body>
+</html>

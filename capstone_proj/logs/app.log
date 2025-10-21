@@ -1,0 +1,506 @@
+2025-10-20 20:24:50,873 | ERROR | Error loading HTML page: 1046 (3D000): No database selected
+Traceback (most recent call last):
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 661, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: No database selected
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 140, in home
+    cursor.execute("SELECT * FROM students")
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 374, in execute
+    result = self._cnx.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 83, in wrapper
+    result = method(cnx, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 669, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1046 (3D000): No database selected
+2025-10-20 20:27:16,629 | INFO | GET /students/ai - Fetched AI students
+2025-10-20 20:34:40,500 | INFO | GET /students_html - Fetched all students
+2025-10-20 20:34:56,804 | INFO | GET /students_ai_html - Fetched AI students
+2025-10-20 20:44:01,616 | INFO | ETL executed successfully and saved to data/student_results.csv
+2025-10-20 20:44:07,256 | INFO | GET /students_ai_html - Fetched AI students
+2025-10-20 20:44:32,500 | ERROR | Error in add_student: 1364 (HY000): Field 'StudentID' doesn't have a default value
+Traceback (most recent call last):
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 661, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'StudentID' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 72, in add_student
+    cursor.execute("INSERT INTO students (Name, Age, Course) VALUES (%s,%s,%s)", (name, age, course))
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 374, in execute
+    result = self._cnx.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 83, in wrapper
+    result = method(cnx, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 669, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'StudentID' doesn't have a default value
+2025-10-20 20:48:50,205 | INFO | GET /students_html - Fetched all students
+2025-10-20 20:52:33,023 | INFO | Added student aniket
+2025-10-20 20:52:37,523 | INFO | GET /students_html - Fetched all students
+2025-10-20 20:52:46,035 | INFO | Deleted student 106
+2025-10-20 20:52:48,459 | INFO | GET /students_html - Fetched all students
+2025-10-20 20:53:15,592 | INFO | ETL executed successfully and saved to data/student_results.csv
+2025-10-20 22:58:19,652 | INFO | ETL: Processed CSV saved to data/student_results_20251020_225819.csv
+2025-10-20 22:58:22,458 | INFO | Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2025-10-20 22:58:24,264 | INFO | Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2025-10-20 22:58:24,483 | ERROR | Socket failed to connect: <socket.socket fd=2112, family=23, type=1, proto=6, laddr=('::', 56475, 0, 0)>; error=10061 (Unknown error)
+2025-10-20 22:58:24,490 | ERROR | TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET6: 23>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('::1', 5672, 0, 0))
+2025-10-20 22:58:24,490 | ERROR | AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:24,491 | INFO | Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-10-20 22:58:24,847 | INFO | Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2025-10-20 22:58:25,027 | INFO | Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2025-10-20 22:58:25,250 | INFO | Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2025-10-20 22:58:26,281 | ERROR | Socket failed to connect: <socket.socket fd=2000, family=23, type=1, proto=6, laddr=('::', 63210, 0, 0)>; error=10061 (Unknown error)
+2025-10-20 22:58:26,281 | ERROR | TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET6: 23>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('::1', 5672, 0, 0))
+2025-10-20 22:58:26,281 | ERROR | AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:26,282 | INFO | Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-10-20 22:58:26,516 | ERROR | Socket failed to connect: <socket.socket fd=2112, family=2, type=1, proto=6, laddr=('0.0.0.0', 63211)>; error=10061 (Unknown error)
+2025-10-20 22:58:26,516 | ERROR | TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+2025-10-20 22:58:26,517 | ERROR | AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:26,517 | ERROR | AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error').
+2025-10-20 22:58:26,517 | ERROR | AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:26,518 | ERROR | Connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:26,518 | ERROR | Error in _create_connection().
+Traceback (most recent call last):
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-10-20 22:58:26,521 | ERROR | Producer: Error sending data/marks.csv to queue - 
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\msg_queue\producer.py", line 12, in send_csv_to_queue
+    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 360, in __init__
+    self._impl = self._create_connection(parameters, _impl_class)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-10-20 22:58:26,875 | ERROR | Socket failed to connect: <socket.socket fd=2340, family=23, type=1, proto=6, laddr=('::', 64979, 0, 0)>; error=10061 (Unknown error)
+2025-10-20 22:58:26,876 | ERROR | TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET6: 23>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('::1', 5672, 0, 0))
+2025-10-20 22:58:26,876 | ERROR | AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:26,876 | INFO | Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-10-20 22:58:26,989 | INFO | GET /students_ai_html - Fetched AI students
+2025-10-20 22:58:27,060 | ERROR | Socket failed to connect: <socket.socket fd=2312, family=23, type=1, proto=6, laddr=('::', 55476, 0, 0)>; error=10061 (Unknown error)
+2025-10-20 22:58:27,060 | ERROR | TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET6: 23>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('::1', 5672, 0, 0))
+2025-10-20 22:58:27,060 | ERROR | AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:27,061 | INFO | Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-10-20 22:58:27,295 | ERROR | Socket failed to connect: <socket.socket fd=2376, family=23, type=1, proto=6, laddr=('::', 64068, 0, 0)>; error=10061 (Unknown error)
+2025-10-20 22:58:27,295 | ERROR | TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET6: 23>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('::1', 5672, 0, 0))
+2025-10-20 22:58:27,295 | ERROR | AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:27,297 | INFO | Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-10-20 22:58:28,316 | ERROR | Socket failed to connect: <socket.socket fd=2000, family=2, type=1, proto=6, laddr=('0.0.0.0', 64069)>; error=10061 (Unknown error)
+2025-10-20 22:58:28,316 | ERROR | TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+2025-10-20 22:58:28,316 | ERROR | AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:28,316 | ERROR | AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error').
+2025-10-20 22:58:28,316 | ERROR | AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:28,317 | ERROR | Connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:28,317 | ERROR | Error in _create_connection().
+Traceback (most recent call last):
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-10-20 22:58:28,317 | ERROR | Producer: Error sending data/marks.csv to queue - 
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\msg_queue\producer.py", line 12, in send_csv_to_queue
+    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 360, in __init__
+    self._impl = self._create_connection(parameters, _impl_class)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-10-20 22:58:28,898 | ERROR | Socket failed to connect: <socket.socket fd=2340, family=2, type=1, proto=6, laddr=('0.0.0.0', 64070)>; error=10061 (Unknown error)
+2025-10-20 22:58:28,898 | ERROR | TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+2025-10-20 22:58:28,899 | ERROR | AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:28,899 | ERROR | AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error').
+2025-10-20 22:58:28,899 | ERROR | AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:28,899 | ERROR | Connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:28,899 | ERROR | Error in _create_connection().
+Traceback (most recent call last):
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-10-20 22:58:28,900 | ERROR | Producer: Error sending data/marks.csv to queue - 
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\msg_queue\producer.py", line 12, in send_csv_to_queue
+    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 360, in __init__
+    self._impl = self._create_connection(parameters, _impl_class)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-10-20 22:58:29,098 | ERROR | Socket failed to connect: <socket.socket fd=2312, family=2, type=1, proto=6, laddr=('0.0.0.0', 62353)>; error=10061 (Unknown error)
+2025-10-20 22:58:29,098 | ERROR | TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+2025-10-20 22:58:29,098 | ERROR | AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:29,099 | ERROR | AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error').
+2025-10-20 22:58:29,099 | ERROR | AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:29,099 | ERROR | Connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:29,099 | ERROR | Error in _create_connection().
+Traceback (most recent call last):
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-10-20 22:58:29,101 | ERROR | Producer: Error sending data/marks.csv to queue - 
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\msg_queue\producer.py", line 12, in send_csv_to_queue
+    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 360, in __init__
+    self._impl = self._create_connection(parameters, _impl_class)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-10-20 22:58:29,316 | ERROR | Socket failed to connect: <socket.socket fd=2376, family=2, type=1, proto=6, laddr=('0.0.0.0', 62354)>; error=10061 (Unknown error)
+2025-10-20 22:58:29,316 | ERROR | TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+2025-10-20 22:58:29,316 | ERROR | AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:29,316 | ERROR | AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error').
+2025-10-20 22:58:29,317 | ERROR | AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:29,317 | ERROR | Connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2025-10-20 22:58:29,317 | ERROR | Error in _create_connection().
+Traceback (most recent call last):
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-10-20 22:58:29,318 | ERROR | Producer: Error sending data/marks.csv to queue - 
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\msg_queue\producer.py", line 12, in send_csv_to_queue
+    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 360, in __init__
+    self._impl = self._create_connection(parameters, _impl_class)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-10-20 22:58:30,949 | INFO | GET /students_html - Fetched all students
+2025-10-20 23:48:38,029 | ERROR | Error generating final analytics: [Errno 2] No such file or directory: 'data/students.csv'
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 14, in generate_final_analytics
+    df_students = pd.read_csv(students_csv)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\util\_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\util\_decorators.py", line 331, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 950, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 605, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 1442, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 1735, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\common.py", line 856, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/students.csv'
+2025-10-20 23:48:38,035 | ERROR | Error in /final_analytics endpoint: [Errno 2] No such file or directory: 'data/students.csv'
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 245, in final_analytics_endpoint
+    top3_students, avg_marks = generate_final_analytics(students_csv, etl_csv)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 30, in generate_final_analytics
+    raise e
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 14, in generate_final_analytics
+    df_students = pd.read_csv(students_csv)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\util\_decorators.py", line 211, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\util\_decorators.py", line 331, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 950, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 605, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 1442, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\parsers\readers.py", line 1735, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\common.py", line 856, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/students.csv'
+2025-10-20 23:49:07,495 | ERROR | Error generating final analytics: 'Course'
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 24, in generate_final_analytics
+    avg_marks_per_course = df_merged.groupby("Course")[["Maths", "Python", "ML", "TotalMarks", "Percentage"]].mean().round(2)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 8402, in groupby
+    return DataFrameGroupBy(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\groupby\groupby.py", line 965, in __init__
+    grouper, exclusions, obj = get_grouper(
+                               ^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\groupby\grouper.py", line 888, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Course'
+2025-10-20 23:49:07,502 | ERROR | Error in /final_analytics endpoint: 'Course'
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 245, in final_analytics_endpoint
+    top3_students, avg_marks = generate_final_analytics(students_csv, etl_csv)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 30, in generate_final_analytics
+    raise e
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 24, in generate_final_analytics
+    avg_marks_per_course = df_merged.groupby("Course")[["Maths", "Python", "ML", "TotalMarks", "Percentage"]].mean().round(2)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 8402, in groupby
+    return DataFrameGroupBy(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\groupby\groupby.py", line 965, in __init__
+    grouper, exclusions, obj = get_grouper(
+                               ^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\groupby\grouper.py", line 888, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Course'
+2025-10-20 23:52:09,961 | ERROR | Error in /final_analytics endpoint: 'Course'
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 245, in final_analytics_endpoint
+    top3_students, avg_marks = final_analytics(students_csv, etl_csv)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 21, in final_analytics
+    avg_marks = df_merged.groupby("Course")[["Maths", "Python", "ML", "TotalMarks", "Percentage"]].mean().round(2)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 8402, in groupby
+    return DataFrameGroupBy(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\groupby\groupby.py", line 965, in __init__
+    grouper, exclusions, obj = get_grouper(
+                               ^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\groupby\grouper.py", line 888, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Course'
+2025-10-20 23:52:11,506 | ERROR | Error in /final_analytics endpoint: 'Course'
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 245, in final_analytics_endpoint
+    top3_students, avg_marks = final_analytics(students_csv, etl_csv)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 21, in final_analytics
+    avg_marks = df_merged.groupby("Course")[["Maths", "Python", "ML", "TotalMarks", "Percentage"]].mean().round(2)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 8402, in groupby
+    return DataFrameGroupBy(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\groupby\groupby.py", line 965, in __init__
+    grouper, exclusions, obj = get_grouper(
+                               ^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\groupby\grouper.py", line 888, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Course'
+2025-10-20 23:55:14,151 | ERROR | Error in /final_analytics: data/students.csv not found
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 242, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_df = run_final_analytics("data/students.csv", "data/student_results.csv")
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 12, in run_final_analytics
+    raise FileNotFoundError(f"{students_csv} not found")
+FileNotFoundError: data/students.csv not found
+2025-10-20 23:55:49,597 | ERROR | Error in /final_analytics: data/students.csv not found
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 242, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_df = run_final_analytics("data/students.csv", "data/student_results.csv")
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 12, in run_final_analytics
+    raise FileNotFoundError(f"{students_csv} not found")
+FileNotFoundError: data/students.csv not found
+2025-10-20 23:57:07,206 | ERROR | Error in /final_analytics: data/students.csv not found
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 242, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_df = run_final_analytics("data/students.csv", "data/student_results.csv")
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 12, in run_final_analytics
+    raise FileNotFoundError(f"{marks_csv} not found")
+FileNotFoundError: data/students.csv not found
+2025-10-20 23:57:52,242 | ERROR | Error in /final_analytics: data/students.csv not found
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 242, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_df = run_final_analytics("data/students.csv", "data/student_results.csv")
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 12, in run_final_analytics
+    raise FileNotFoundError(f"{marks_csv} not found")
+FileNotFoundError: data/students.csv not found
+2025-10-21 00:03:34,778 | ERROR | Error in /final_analytics: data/students.csv not found
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 242, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_df = run_final_analytics("data/students.csv", "data/student_results.csv")
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 12, in run_final_analytics
+    raise FileNotFoundError(f"{marks_csv} not found")
+FileNotFoundError: data/students.csv not found
+2025-10-21 00:05:15,102 | ERROR | Error in /final_analytics: 'Series' object has no attribute 'to_html'
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 250, in final_analytics_endpoint
+    html += avg_marks_df.to_html(border=1)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\generic.py", line 5902, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Series' object has no attribute 'to_html'
+2025-10-21 00:10:43,095 | ERROR | Error in /final_analytics: "['Maths', 'Python', 'ML'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 243, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_series = run_final_analytics("data/marks.csv", "data/student_results.csv")
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 25, in run_final_analytics
+    merged_df = merged_df[['StudentID', 'Maths', 'Python', 'ML', 'TotalMarks', 'Percentage', 'Result']]
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 3813, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6070, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6133, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Maths', 'Python', 'ML'] not in index"
+2025-10-21 00:12:31,453 | ERROR | Error in /final_analytics: "['Maths', 'Python', 'ML'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 243, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_series = run_final_analytics("data/marks.csv", "data/student_results.csv")
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 24, in run_final_analytics
+    merged_df = merged_df[['StudentID', 'Maths', 'Python', 'ML', 'TotalMarks', 'Percentage', 'Result']]
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 3813, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6070, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6133, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Maths', 'Python', 'ML'] not in index"
+2025-10-21 00:12:58,231 | ERROR | Error in /final_analytics: "['Maths', 'Python', 'ML'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 243, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_series = run_final_analytics("data/marks.csv", "data/student_results.csv")
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 24, in run_final_analytics
+    merged_df = merged_df[['StudentID', 'Maths', 'Python', 'ML', 'TotalMarks', 'Percentage', 'Result']]
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 3813, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6070, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6133, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Maths', 'Python', 'ML'] not in index"
+2025-10-21 00:13:55,125 | ERROR | Error in /final_analytics: "['Maths', 'Python', 'ML'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 243, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_series = run_final_analytics("data/marks.csv", "data/student_results.csv")
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 24, in run_final_analytics
+    merged_df = merged_df[['StudentID', 'Maths', 'Python', 'ML', 'TotalMarks', 'Percentage', 'Result']]
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 3813, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6070, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6133, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Maths', 'Python', 'ML'] not in index"
+2025-10-21 00:15:37,836 | ERROR | Error in /final_analytics: "['Maths', 'Python', 'ML'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 242, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_series = run_final_analytics(
+                                           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 24, in run_final_analytics
+    merged_df = merged_df[['StudentID', 'Maths', 'Python', 'ML', 'TotalMarks', 'Percentage', 'Result']]
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 3813, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6070, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6133, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Maths', 'Python', 'ML'] not in index"
+2025-10-21 00:17:18,977 | ERROR | Error in /final_analytics: "['Maths', 'Python', 'ML'] not in index"
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 242, in final_analytics_endpoint
+    merged_df, top3_df, avg_marks_series = run_final_analytics(
+                                           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\analytics\final_analytics.py", line 24, in run_final_analytics
+    merged_df = merged_df[['StudentID', 'Maths', 'Python', 'ML', 'TotalMarks', 'Percentage', 'Result']]
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\frame.py", line 3813, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6070, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\indexes\base.py", line 6133, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Maths', 'Python', 'ML'] not in index"
+2025-10-21 00:19:22,771 | INFO | ETL: Processed CSV saved to data/student_results_20251021_001922.csv
+2025-10-21 00:19:25,794 | INFO | GET /students_ai_html - Fetched AI students
+2025-10-21 00:19:27,759 | INFO | GET /students_html - Fetched all students
+2025-10-21 00:19:36,786 | ERROR | Error in /students_etl_html: 1054 (42S22): Unknown column 'Maths' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 661, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'Maths' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 209, in students_etl_html
+    cursor.execute("""
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 374, in execute
+    result = self._cnx.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 83, in wrapper
+    result = method(cnx, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 669, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'Maths' in 'field list'
+2025-10-21 00:19:40,176 | ERROR | Error in /students_etl_html: 1054 (42S22): Unknown column 'Maths' in 'field list'
+Traceback (most recent call last):
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 661, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'Maths' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Aniket\OneDrive\Desktop\capstone\crud\main.py", line 209, in students_etl_html
+    cursor.execute("""
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\cursor_cext.py", line 374, in execute
+    result = self._cnx.cmd_query(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\opentelemetry\context_propagation.py", line 83, in wrapper
+    result = method(cnx, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Aniket\AppData\Local\Programs\Python\Python312\Lib\site-packages\mysql\connector\connection_cext.py", line 669, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'Maths' in 'field list'
+2025-10-21 08:45:45,085 | INFO | package: mysql.connector.plugins
+2025-10-21 08:45:45,086 | INFO | plugin_name: caching_sha2_password
+2025-10-21 08:45:45,086 | INFO | AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin

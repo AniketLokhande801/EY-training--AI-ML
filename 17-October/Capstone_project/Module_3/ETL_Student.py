@@ -18,5 +18,5 @@ def run_etl(filepath):
     print(f"ETL RUN COMPLETED! at - {dt.datetime.now()}")
     print(f"time required for etl - {end-start} ")
     return df
-# run_etl("marks.csv")
+run_etl("marks.csv")
 
