@@ -22,11 +22,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="crud/templates")
 
 # ------------- Initialize DB at startup -----------------
-@app.on_event("startup")
-async def startup_event():
-    loop = asyncio.get_event_loop()
-    # Run init_db() in a thread so it doesn't block the event loop
-    await loop.run_in_executor(None, init_db)
+
 
 # ---------------- Dashboard HTML ----------------
 @app.get("/dashboard", response_class=HTMLResponse)
