@@ -10,28 +10,25 @@ import os
 import logging
 import asyncio
 
-# ---------------- Logging Setup ----------------
+
 logging.basicConfig(
     filename="logs/app.log",
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s"
 )
 
-# ---------------- FastAPI App ----------------
+
 app = FastAPI()
 templates = Jinja2Templates(directory="crud/templates")
 
-# ------------- Initialize DB at startup -----------------
 
 
-# ---------------- Dashboard HTML ----------------
+
 @app.get("/dashboard", response_class=HTMLResponse)
 def dashboard(request: Request):
     return templates.TemplateResponse("dashboard.html", {"request": request})
 
-# ... rest of your endpoints unchanged ...
 
-# Example for one endpoint to illustrate (rest remain same)
 @app.get("/students_html", response_class=HTMLResponse)
 def students_html(request: Request):
     try:
@@ -70,7 +67,7 @@ def students_ai_html(request: Request):
         logging.error(f"Error in /students_ai_html: {e}", exc_info=True)
         return HTMLResponse(f"<h3>Error: {e}</h3>")
 
-# ---------------- POST Endpoints (Add/Update/Delete) ----------------
+
 @app.post("/students")
 def add_student(StudentID : int =Form(...),name: str = Form(...), age: int = Form(...), course: str = Form(...)):
     try:
