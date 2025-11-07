@@ -1,0 +1,10 @@
+[
+    {
+        "user_query": "hello",
+        "llm_response": "Hello! It's great to meet you! Is there something I can help you with, or would you like to chat for a bit? I'm here to assist you with any questions or topics you'd like to discuss. Let me know how I can help!"
+    },
+    {
+        "user_query": "what is the capital of india\r\n",
+        "llm_response": "The capital of India is New Delhi."
+    }
+]
