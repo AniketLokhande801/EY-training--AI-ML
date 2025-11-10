@@ -1,0 +1,46 @@
+2025-11-10 11:16:04,579 - ERROR - Error: 'QueryRequest' object is not subscriptable
+2025-11-10 11:19:17,638 - INFO - User query received: add 5 and 4
+2025-11-10 11:19:19,345 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-10 11:19:19,788 - ERROR - Error: 1 validation error for QueryParse
+  Input should be an object [type=model_type, input_value=[1], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+2025-11-10 11:23:55,734 - INFO - User query received: add 5 and 4
+2025-11-10 11:23:56,902 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-10 11:23:57,132 - ERROR - Error: 1 validation error for QueryParse
+  Input should be an object [type=model_type, input_value=[1], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+2025-11-10 11:25:54,360 - INFO - User query received: add 5 and 4
+2025-11-10 11:25:55,784 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-10 11:25:56,272 - INFO - Parsed LLM output: {'task': 'math', 'query': 'add 5 and 4'}
+2025-11-10 11:25:56,274 - INFO - Executing math operation: add 5 and 4
+2025-11-10 11:25:56,275 - INFO - Math result: 9
+2025-11-10 11:25:56,276 - INFO - Final result: {'result': 'Math result: 9'}
+2025-11-10 11:26:08,577 - INFO - User query received: what is today date 
+2025-11-10 11:26:09,919 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-10 11:26:10,278 - INFO - Parsed LLM output: {'task': 'date', 'query': 'what is today date'}
+2025-11-10 11:26:10,279 - INFO - Executing date operation: what is today date
+2025-11-10 11:26:11,290 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-10 11:26:11,574 - INFO - Date response: Today's date is 2025-11-10.
+2025-11-10 11:26:11,575 - INFO - Final result: {'result': "Today's date is 2025-11-10."}
+2025-11-10 11:26:24,293 - INFO - User query received: what is yesterday's date
+2025-11-10 11:26:25,854 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-10 11:26:26,222 - INFO - Parsed LLM output: {'task': 'date', 'query': "what is yesterday's date"}
+2025-11-10 11:26:26,223 - INFO - Executing date operation: what is yesterday's date
+2025-11-10 11:26:27,232 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-10 11:26:27,383 - INFO - Date response: Yesterday's date was 2025-11-09.
+2025-11-10 11:26:27,384 - INFO - Final result: {'result': "Yesterday's date was 2025-11-09."}
+2025-11-10 11:26:40,133 - INFO - User query received: reverse NITIN
+2025-11-10 11:26:41,428 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-10 11:26:41,766 - INFO - Parsed LLM output: {'task': 'reverse', 'query': 'reverse NITIN'}
+2025-11-10 11:26:41,767 - INFO - Executing string reversal: reverse NITIN
+2025-11-10 11:26:41,768 - INFO - Final result: {'result': 'Reversed string: NITIN'}
+2025-11-10 11:26:45,445 - INFO - User query received: reverse NITI
+2025-11-10 11:26:46,076 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-10 11:26:46,381 - INFO - Parsed LLM output: {'task': 'reverse', 'query': 'reverse NITI'}
+2025-11-10 11:26:46,382 - INFO - Executing string reversal: reverse NITI
+2025-11-10 11:26:46,382 - INFO - Final result: {'result': 'Reversed string: ITIN'}
+2025-11-10 11:26:59,695 - INFO - User query received: what is capital of india
+2025-11-10 11:27:00,836 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-10 11:27:01,202 - INFO - Parsed LLM output: {'task': 'default', 'query': 'what is capital of india'}
+2025-11-10 11:27:01,228 - INFO - Executing default response for: what is capital of india
+2025-11-10 11:27:01,237 - INFO - Final result: {'result': "Sorry, I couldn't understand your query."}
