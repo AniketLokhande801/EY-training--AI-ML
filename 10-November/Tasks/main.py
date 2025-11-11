@@ -8,12 +8,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 import os, re, logging
 
-# Load environment variables
+
 load_dotenv()
 api_key = os.getenv("OPENROUTER_API_KEY")
 base_url = "https://openrouter.ai/api/v1"
 
-# Logging setup
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
@@ -23,7 +23,7 @@ logging.basicConfig(
     ]
 )
 
-# FastAPI setup
+
 app = FastAPI(title="LangGraph Query Router API")
 app.add_middleware(
     CORSMiddleware,
@@ -32,7 +32,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- LLM Setup ---
+
 llm = ChatOpenAI(
     model="meta-llama/llama-3-8b-instruct",
     temperature=0.4,
@@ -41,16 +41,16 @@ llm = ChatOpenAI(
     base_url=base_url,
 )
 
-# --- Structured Output Schema ---
+
 class QueryParse(BaseModel):
     task: str = Field(..., description="Type of task e.g. math, date, reverse, default")
     query: str = Field(..., description="Original user query")
 
-# --- Request Schema ---
+
 class QueryRequest(BaseModel):
     query: str
 
-# --- LLM Parser Node ---
+
 def parse_query_with_llm(state: dict):
     query = state.get("query")
     logging.info(f"User query received: {query}")
@@ -74,7 +74,7 @@ def parse_query_with_llm(state: dict):
     logging.info(f"Parsed LLM output: {parsed}")
     return parsed
 
-# --- Math Node ---
+
 def do_math(state: dict):
     query = state.get("query")
     logging.info(f"Executing math operation: {query}")
@@ -96,7 +96,7 @@ def do_math(state: dict):
     logging.info(f"Math result: {result}")
     return {"result": f"Math result: {result}"}
 
-# --- Date Node with LLM ---
+
 def do_date(state: dict):
     query = state.get("query")
     logging.info(f"Executing date operation: {query}")
@@ -111,7 +111,7 @@ def do_date(state: dict):
     logging.info(f"Date response: {response.content}")
     return {"result": response.content}
 
-# --- Reverse Node ---
+
 def do_reverse(state: dict):
     query = state.get("query")
     logging.info(f"Executing string reversal: {query}")
@@ -119,13 +119,14 @@ def do_reverse(state: dict):
     reversed_text = text[::-1]
     return {"result": f"Reversed string: {reversed_text}"}
 
-# --- Default Node ---
+
 def default_response(state: dict):
     query = state.get("query")
+
     logging.info(f"Executing default response for: {query}")
     return {"result": "Sorry, I couldn't understand your query."}
 
-# --- LangGraph Setup ---
+
 builder = StateGraph(dict)
 builder.add_node("parse", parse_query_with_llm)
 builder.add_node("math", do_math)
@@ -146,7 +147,7 @@ builder.add_conditional_edges("parse", route, {
 builder.set_entry_point("parse")
 graph = builder.compile()
 
-# --- API Endpoint ---
+
 @app.post("/process_query")
 async def process_query(req: QueryRequest):
     try:
