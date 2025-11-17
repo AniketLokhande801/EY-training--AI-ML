@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart Meeting Synthesizer 💌</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+<h1>💼 Smart Meeting Synthesizer</h1>
+<p class="subtitle">Analyze meetings and share summaries effortlessly!</p>
+
+    <div class="card">
+<h2>Step 1: Upload Meeting Transcript</h2>
+<input type="file" id="fileInput" accept=".docx" />
+<button id="analyzeBtn">Analyze Meeting</button>
+<div id="loader" class="hidden">⏳ Analyzing meeting... please wait</div>
+<textarea id="analysisResult" placeholder="The meeting summary will appear here..." readonly></textarea>
+</div>
+
+    <div class="card">
+<h2>Step 2: Send Summary via Email</h2>
+<input type="text" id="emailInput" placeholder="Enter recipient emails separated by commas" />
+<button id="sendEmailBtn">📧 Send Email</button>
+<div id="emailStatus"></div>
+</div>
+</div>
+
+  <footer>Made with 💖 by Smart Meeting Synthesizer</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

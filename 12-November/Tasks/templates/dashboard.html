@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard | Meeting AI Assistant</title>
+  <link rel="stylesheet" href="../static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-title">Smart Meeting Synthesizer</h1>
+    <p class="sub-text">Welcome, {{ email }} | Team: {{ team }}</p>
+    <hr class="divider" />
+
+    {% if message %}
+      <p class="success">{{ message }}</p>
+    {% endif %}
+    <!-- 🔍 Loading Animation -->
+    <div id="loading-animation" class="loading-container" style="display: none;">
+    <div class="magnifier"></div>
+    <p>Analyzing transcript...</p>
+    </div>
+    <!-- Upload Transcript -->
+    <div class="stCard">
+      <h2 class="section-header">📄 Upload Meeting Transcript</h2>
+      <form method="post" action="/analyze_meeting/" enctype="multipart/form-data">
+        <input type="hidden" name="email" value="{{ email }}" />
+        <input type="hidden" name="team" value="{{ team }}" />
+        <input type="file" name="file" accept=".docx" required />
+        <button type="submit">Analyze Transcript</button>
+      </form>
+    </div>
+
+    {% if summary %}
+
+      <div class="stCard">
+        <h2 class="section-header">🧾 Meeting Summary</h2>
+        <div class="markdown-body">
+
+            {{ summary | safe }}
+        </div>
+        </div>
+
+
+    <!-- Email Sending -->
+<!--    <div class="stCard">-->
+<!--      <h2 class="section-header">✉️ Send Meeting Summary</h2>-->
+<!--      <form method="post" action="/send_emails/" id="email-form">-->
+<!--        <input type="hidden" name="email" value="{{ email }}" />-->
+<!--        <input type="hidden" name="team" value="{{ team }}" />-->
+<!--        <input type="hidden" name="summary" value="{{ summary }}" />-->
+<!--        <label>Select Recipients:</label><br/>-->
+<!--        {% for member in members %}-->
+<!--          <div class="recipient-checkbox">-->
+<!--            <input type="checkbox" name="recipients" value="{{ member }}" /> {{ member }}-->
+<!--          </div>-->
+<!--        {% endfor %} -->
+<!--        <button type="submit">📤 Send Meeting Summary</button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--    {% endif %} -->
+      <div class="stCard">
+<h2 class="section-header">✉️ Send Meeting Summary</h2>
+<form method="post" action="/send_emails/" id="email-form">
+<input type="hidden" name="email" value="{{ email }}" />
+<input type="hidden" name="team" value="{{ team }}" />
+<input type="hidden" name="summary" value="{{ summary }}" />
+<label>Select Recipients:</label>
+<div class="recipient-grid">
+      {% for member in members %}
+<label class="recipient-tile">
+<input type="checkbox" name="recipients" value="{{ member }}" />
+          {{ member }}
+</label>
+      {% endfor %}
+</div>
+<button type="submit">📤 Send Meeting Summary</button>
+</form>
+</div>
+
+    <!-- ⏰ Set Reminders -->
+    <div class="stCard">
+    <h2 class="section-header">⏰ Add Follow-up Reminders</h2>
+    <form method="post" action="/set_reminders/">
+    <input type="hidden" name="email" value="{{ email }}" />
+    <input type="hidden" name="team" value="{{ team }}" />
+    <input type="hidden" name="summary" value="{{ summary }}" />
+    <button type="submit">Add Reminders to Calendar</button>
+    </form>
+    </div>
+
+    <hr class="divider" />
+    <a href="/" class="logout-btn">Logout</a>
+  </div>
+  <script src="../static/script.js"></script>
+</body>
+</html>
